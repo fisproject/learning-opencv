@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import cv2
-import numpy as np
 from matplotlib import pyplot as plt
+
 
 if __name__ == "__main__":
     img_src = cv2.imread('../images/Lenna.jpg', cv2.IMREAD_COLOR)

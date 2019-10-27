@@ -5,6 +5,7 @@ import copy
 import random
 import numpy as np
 
+
 if __name__ == '__main__':
     img_src = cv2.imread('../images/Label.jpg', cv2.IMREAD_COLOR)
     height, width = img_src.shape[:2]
@@ -17,17 +18,27 @@ if __name__ == '__main__':
     print('labels: %s' % labels)
 
     colors = []
-    for i in xrange(1, labels+1):
-        colors.append(np.array([random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]))
+    for i in range(1, labels+1):
+        colors.append(
+            np.array(
+                [random.randint(0, 255),
+                 random.randint(0, 255),
+                 random.randint(0, 255)]
+            )
+        )
 
-    for y in xrange(0, height):
-        for x in xrange(0, width):
+    for y in range(0, height):
+        for x in range(0, width):
             if img_obj[y, x] > 0:
                 img_dst[y, x] = colors[img_obj[y, x]]
             else:
                 img_dst[y, x] = [0, 0, 0]
 
-    output = cv2.connectedComponentsWithStats(th, connectivity=4, ltype=cv2.CV_32S)
+    output = cv2.connectedComponentsWithStats(
+                th,
+                connectivity=4,
+                ltype=cv2.CV_32S
+             )
     labels, labels, stats, centroids = output[:4]
     print(centroids)
 

@@ -3,14 +3,15 @@
 import cv2
 import numpy as np
 
+
 if __name__ == "__main__":
     cols = 480
     rows = 640
-    img_blk = np.zeros((rows, cols, 3), np.uint8) # numpy.ndarray
+    img_blk = np.zeros((rows, cols, 3), np.uint8)
 
     height, width, channels = img_blk.shape[:3]
     print('width: %s, height: %s, channels: %s, dtype: %s' %
-        (str(width), str(height), str(channels), str(img_blk.dtype)))
+          (str(width), str(height), str(channels), str(img_blk.dtype)))
 
     cv2.imshow('blank_image', img_blk)
     while True:

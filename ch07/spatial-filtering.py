@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import cv2
-import numpy as np
+
 
 def show_image(title, data):
     cv2.imshow(title, data)
@@ -9,16 +9,17 @@ def show_image(title, data):
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
+
 if __name__ == '__main__':
     img_src = cv2.imread('../images/Lenna.jpg', cv2.IMREAD_COLOR)
 
     # 平均化オペレータ
-    img_dst = cv2.blur(img_src, ksize=(5,5))
+    img_dst = cv2.blur(img_src, ksize=(5, 5))
     show_image('Normalized box filter', img_dst)
     cv2.imwrite('../output/cv2-normalized.jpg', img_dst)
 
     # Gaussianオペレータ
-    img_dst = cv2.GaussianBlur(img_src, ksize=(5,5), sigmaX=1)
+    img_dst = cv2.GaussianBlur(img_src, ksize=(5, 5), sigmaX=1)
     show_image('Gaussian', img_dst)
     cv2.imwrite('../output/cv2-gaussian.jpg', img_dst)
 

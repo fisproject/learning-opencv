@@ -3,11 +3,13 @@
 import cv2
 import numpy as np
 
+
 def show_image(title, data):
     cv2.imshow(title, data)
     while True:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
+
 
 if __name__ == '__main__':
     img_src = cv2.imread('../images/Lenna.jpg', cv2.IMREAD_COLOR)
